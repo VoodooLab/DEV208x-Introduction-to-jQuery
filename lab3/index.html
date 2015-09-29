@@ -98,7 +98,13 @@
                         $('#output').text(data.message);
                     })
                 }
-            })
+            });
+
+            $(document).ajaxSend(function () {
+                $('#save-rating').attr('disabled', 'disabled');
+            }).ajaxComplete(function () {
+                $('#save-rating').removeAttr('disabled');
+            });
         })
     </script>
 </body>
